@@ -1,0 +1,102 @@
+<definitions name="ProcessWSDL" targetNamespace="urn:suz:addremovesocorfeature">
+    <types>
+        <xsd:schema targetNamespace="urn:suz:addremovesocorfeature">
+            <xsd:import namespace="urn:suz:addremovesocorfeature:types"
+                        schemaLocation="http://172.28.5.15:9081/AddRemoveSOCorFeatureCA-sun-http-binding/AddRemoveSOCorFeature/Process.xsd"/>
+        </xsd:schema>
+    </types>
+    <message name="addSocRequest">
+        <part name="part1" element="ns:addSocRequest">
+        </part>
+    </message>
+    <message name="delSocRequest">
+        <part name="part1" element="ns:delSocRequest">
+        </part>
+    </message>
+    <message name="ChangePricePlanRequest">
+        <part name="part1" element="ns:ChangePricePlanRequest">
+        </part>
+    </message>
+    <message name="addSocResponse">
+        <part name="part1" element="ns:addSocResponse">
+        </part>
+    </message>
+    <message name="ChangePricePlanResponse">
+        <part name="part1" element="ns:ChangePricePlanResponse">
+        </part>
+    </message>
+    <message name="delSocResponse">
+        <part name="part1" element="ns:delSocResponse">
+        </part>
+    </message>
+    <portType name="addremovesocorfeaturePortType">
+        <operation name="ChangePricePlan">
+            <input name="ChangePricePlanInput" message="tns:ChangePricePlanRequest">
+            </input>
+            <output name="ChangePricePlanOutput" message="tns:ChangePricePlanResponse">
+            </output>
+        </operation>
+        <operation name="addSoc">
+            <input name="addSocInput" message="tns:addSocRequest">
+            </input>
+            <output name="addSocOutput" message="tns:addSocResponse">
+            </output>
+        </operation>
+        <operation name="delSoc">
+            <input name="delSocInput" message="tns:delSocRequest">
+            </input>
+            <output name="delSocOutput" message="tns:delSocResponse">
+            </output>
+        </operation>
+    </portType>
+    <binding name="addremovesocorfeatureBinding" type="tns:addremovesocorfeaturePortType">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <operation name="ChangePricePlan">
+            <soap:operation/>
+            <input name="ChangePricePlanInput">
+                <soap:body use="literal" namespace="urn:suz:addremovesocorfeature"/>
+            </input>
+            <output name="ChangePricePlanOutput">
+                <soap:body use="literal" namespace="urn:suz:addremovesocorfeature"/>
+            </output>
+        </operation>
+        <operation name="addSoc">
+            <soap:operation/>
+            <input name="addSocInput">
+                <soap:body use="literal" namespace="urn:suz:addremovesocorfeature"/>
+            </input>
+            <output name="addSocOutput">
+                <soap:body use="literal" namespace="urn:suz:addremovesocorfeature"/>
+            </output>
+        </operation>
+        <operation name="delSoc">
+            <soap:operation/>
+            <input name="delSocInput">
+                <soap:body use="literal" namespace="urn:suz:addremovesocorfeature"/>
+            </input>
+            <output name="delSocOutput">
+                <soap:body use="literal" namespace="urn:suz:addremovesocorfeature"/>
+            </output>
+        </operation>
+    </binding>
+    <service name="addremovesocorfeatureService">
+        <port name="addremovesocorfeaturePort" binding="tns:addremovesocorfeatureBinding">
+            <soap:address location=""/>
+            <wsp:PolicyReference URI="#BasicAuthPolicy"/>
+        </port>
+    </service>
+    <wsp:Policy wsu:Id="BasicAuthPolicy">
+        <basp:MustSupportBasicAuthentication on="true">
+            <basp:BasicAuthenticationDetail>
+                <basp:Realm realmName="file"/>
+            </basp:BasicAuthenticationDetail>
+        </basp:MustSupportBasicAuthentication>
+    </wsp:Policy>
+    <plnk:partnerLinkType name="addremovesocorfeatureLinkType"><!--
+ A partner link type is automatically generated when a new port type is added. Partner link types are used by BPEL processes.
+In a BPEL process, a partner link represents the interaction between the BPEL process and a partner service. Each partner link is associated with a partner link type.
+A partner link type characterizes the conversational relationship between two services. The partner link type can have one or two roles.
+-->
+        <plnk:role name="addremovesocorfeaturePortTypeRole" portType="tns:addremovesocorfeaturePortType"/>
+    </plnk:partnerLinkType>
+</definitions>
