@@ -1,6 +1,5 @@
 package com.example.all;
 
-import jdk.nashorn.internal.objects.NativeRegExp;
 
 import java.math.BigInteger;
 import java.util.Arrays;
